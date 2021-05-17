@@ -3,6 +3,8 @@ import {useState} from 'react';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import NewUser from './components/User/NewUser/NewUser';
+import UserList from './components/User/UserList/UserList';
 
 const _EXPENSES = [
   {
@@ -29,6 +31,7 @@ const _EXPENSES = [
 function App() {
 
   const [expenses, setExpenses] = useState(_EXPENSES);
+  const [users, setUsers] = useState([]);
 
   const onAddNewExpense = (newExpense) => {
     console.log(newExpense);
@@ -37,10 +40,18 @@ function App() {
     })
   }
 
+  const onNewUserAdded = (user) => {
+    setUsers(prevUsers => {
+      return [...prevUsers, user]
+    });
+  }
+
   return (
     <div className="App">
-      <NewExpense onAddNewExpense={onAddNewExpense}/>
-      <Expenses expenses={expenses}/>
+      {/* <NewExpense onAddNewExpense={onAddNewExpense}/>
+      <Expenses expenses={expenses}/> */}
+      <NewUser onNewUserAdded={onNewUserAdded}/>
+      <UserList users={users}/>
     </div>
   );
 }
