@@ -48,10 +48,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* <NewExpense onAddNewExpense={onAddNewExpense}/>
-      <Expenses expenses={expenses}/> */}
-      <NewUser onNewUserAdded={onNewUserAdded}/>
-      <UserList users={users}/>
+      <NewExpense onAddNewExpense={onAddNewExpense}/>
+      <Expenses expenses={expenses}/>
+      {/* <NewUser onNewUserAdded={onNewUserAdded}/>
+      <UserList users={users}/> */}
     </div>
   );
 }
